@@ -26,7 +26,7 @@ defineProps({
                 </span>
             </div>
             <NuxtLink
-                to="/"
+                to="/products"
                 class="inline-flex gap-x-3 text-lg text-primary font-semibold hover:font-bold hover:scale-105 transition ease-linear duration-150"
             >
                 View all <img src="~/assets/icons/arrow-right.svg" width="24" height="24" />

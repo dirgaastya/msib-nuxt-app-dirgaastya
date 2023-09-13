@@ -17,14 +17,24 @@ export type TProduct = {
 export const useProductStore = defineStore('product', {
     state: (): {
         products: TProduct[]
+        product: TProduct;
     } => ({
-        products: []
+        products: [],
+        product: {} as TProduct,
     }),
     actions: {
         async fetchProducts(): Promise<void> {
             try {
-                const response = await axios.get('https://dummyjson.com/products/')
+                const response = await axios.get(`https://dummyjson.com/products/`)
                 this.products = response.data.products
+            } catch (error) {
+                console.error(error)
+            }
+        },
+        async getProductDetail(id: number): Promise<void> {
+            try {
+                const response = await axios.get(`https://dummyjson.com/products/${id}`)
+                this.product = response.data
             } catch (error) {
                 console.error(error)
             }

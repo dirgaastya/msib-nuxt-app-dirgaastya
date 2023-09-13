@@ -12,7 +12,7 @@ import Button from "../Button.vue";
             <Button label="Start Shopping" color="primary" icon="cart" class="mx-auto xl:mx-0" />
         </div>
         <div class="hidden xl:block absolute right-0 t">
-            <img src="@/assets/images/hero-image.png" />
+            <img src="~/assets/images/hero-image.png" />
         </div>
     </div>
 </template>

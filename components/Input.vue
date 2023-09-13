@@ -3,6 +3,7 @@ defineProps({
     modelValue: String,
     placeholder: String,
     type: String,
+    className: String,
 });
 
 const emit = defineEmits(["update:modelValue"]);
@@ -13,10 +14,10 @@ const updateValue = (event: any) => {
 </script>
 <template>
     <input
-        type="text"
+        :type="type"
         :value="modelValue"
         @input="updateValue"
-        placeholder="What needs to be done"
-        class="h-[52px] py-[10px] px-[18px] text-lg ease-linear duration-300 rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary"
+        :placeholder="placeholder"
+        :class="`w-full appearance-none h-[52px] py-[10px] px-[18px] pl-10 text-lg ease-linear duration-300 rounded-lg border border-gray-300 outline-none ring-0 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary ${className}`"
     />
 </template>

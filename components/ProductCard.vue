@@ -37,7 +37,7 @@ function getDiscPrice(price: number, disc: number): number {
                         <h5 class="font-semibold text-xl text-gray-900">
                             ${{ getDiscPrice(product.price, product.discountPercentage) }}
                         </h5>
-                        <p class="font-normal text-xs text-gray-400 capitalize">{{ product.brand }}</p>
+                        <p class="font-normal text-right text-xs text-gray-400 capitalize">{{ product.brand }}</p>
                     </div>
                     <div class="flex items-center gap-x-2 py-1">
                         <h6 class="font-normal text-xs text-gray-400 line-through">${{ product.price }}</h6>
