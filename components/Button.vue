@@ -24,6 +24,7 @@ const icons: { [key: string]: string } = {
     "arrow-right": "https://ucarecdn.com/c2f9a698-81ab-4c1e-ba06-47caa361b864/",
     "arrow-left": "https://ucarecdn.com/ecfc7a7b-81d5-4291-a718-f4436c6d0b5c/",
     filter: "https://ucarecdn.com/71c1e085-77bc-4ba6-acae-31b930b4efd4/",
+    home: "https://ucarecdn.com/f364c359-616c-4376-8805-45569f2b7120/",
 };
 </script>
 

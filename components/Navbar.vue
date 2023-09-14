@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import Button from "./Button.vue";
+import { useCartStore } from "~/store/cart.store";
+const cartStore = useCartStore();
+
+onMounted(() => {
+    cartStore.fetchCart();
+});
+
 type NavMenu = {
     name: string;
     to: string;
@@ -35,9 +41,17 @@ const navigationLinks: NavMenu[] = [
                 </li>
             </ul>
         </div>
-        <div class="hidden md:block md:space-x-3">
-            <Button label="Log in" />
-            <Button label="Sign up" color="primary" />
+        <div class="hidden md:flex md:space-x-3 items-center">
+            <!-- <Button label="Log in" />
+            <Button label="Sign up" color="primary" /> -->
+            <NuxtLink to="/checkout" class="relative w-10 h-10 flex items-center justify-center">
+                <span
+                    class="absolute top-1 right-0 w-4 h-4 rounded-full bg-orange-500 text-[10px] font-medium text-white text-center block"
+                    >{{ cartStore.cart ? cartStore.cart.totalProducts : 0 }}</span
+                >
+                <img src="~/assets/icons/shopping-cart-2.svg" alt="cart" />
+            </NuxtLink>
+            <img src="~/assets/images/Avatar.png" class="w-10 h-10 rounded-full overflow-hidden" />
         </div>
         <div class="block md:hidden">
             <img src="../assets/icons/hamburger-menu.svg" alt="hamburger" class="w-8 h-8" />

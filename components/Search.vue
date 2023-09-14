@@ -1,15 +1,13 @@
 <script setup lang="ts">
+import { useProductStore } from "~/store/product.store";
+const productStore = useProductStore();
 defineProps({
     placeholder: String,
     width: String,
 });
+
+const query = ref<string>("");
 </script>
 <template>
-    <label :class="`${width} relative block`">
-        <span class="sr-only">Search</span>
-        <span class="absolute inset-y-0 left-0 flex items-center pl-[14px]">
-            <img src="~/assets/icons/search-lg.svg" alt="search-icon" />
-        </span>
-        <Input type="text" :placeholder="placeholder" />
-    </label>
+    {{ query }}
 </template>

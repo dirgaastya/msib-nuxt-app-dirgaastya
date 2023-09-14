@@ -14,12 +14,13 @@ const colors: { [key: string]: string } = {
 const variants: { [key: string]: string } = {
     available: "bg-gray-50 border-2 border-transparent",
     active: "bg-white border-2 border-primary",
-    notAvailable: "bg-gray-200 border-2 border-transparent",
+    notAvailable: "bg-gray-200 border-2 border-transparent cursor-not-allowed",
 };
 </script>
 
 <template>
     <button
+        :disabled="!available"
         :class="`${
             available && active ? variants.active : available ? variants.available : variants.notAvailable
         } h-14 rounded-lg  flex items-center gap-x-4 ps-2 pe-4 py-2`"

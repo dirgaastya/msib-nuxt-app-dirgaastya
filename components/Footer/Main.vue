@@ -29,7 +29,10 @@ const socials: SocialIcons[] = [
                 <div v-for="(footer, index) in footers" :key="index" class="">
                     <h5 class="text-sm font-semibold text-gray-300 pb-4">{{ footer.name }}</h5>
                     <ul class="space-y-2">
-                        <li v-for="item in footer.items" class="flex items-center gap-x-2 text-base font-semibold text-gray-200">
+                        <li
+                            v-for="item in footer.items"
+                            class="flex items-center gap-x-2 text-base font-semibold text-gray-200 hover:text-gray-300"
+                        >
                             <NuxtLink to="/">{{ item.name }}</NuxtLink>
                             <div
                                 v-show="item.new"

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TProduct } from "../store/product.store";
+import { TProduct } from "~/types/types";
 defineProps({
     product: {
         type: Object as () => TProduct,
@@ -12,13 +12,11 @@ function getDiscPrice(price: number, disc: number): number {
 }
 </script>
 <template>
-    <div
-        class="group border border-gray-200 bg-white hover:bg-gray-300 h-[440px] rounded-xl overflow-hidden transition ease-out duration-200"
-    >
+    <div class="group border border-gray-200 bg-white h-[440px] rounded-xl overflow-hidden transition ease-out duration-200">
         <NuxtLink :to="`/products/${product.id}`">
             <img
-                :src="product.images[0]"
-                :alt="product.images[0]"
+                :src="product.thumbnail"
+                :alt="product.thumbnail"
                 class="mx-auto w-full h-56 object-center group-hover:filter group-hover:brightness-75 transition ease-out duration-200"
             />
             <div class="p-6 h-1/2 flex flex-col justify-between">
