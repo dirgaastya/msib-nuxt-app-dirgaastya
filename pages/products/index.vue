@@ -13,7 +13,7 @@ onMounted(() => {
             <h1
                 class="text-center text-3xl md:text-[40px] md:leading-[56px] md:tracking-[-0.8px] font-semibold text-gray-900 mb-6"
             >
-                Product List {{ query }}
+                Product List
             </h1>
             <div class="w-full flex gap-x-2 px-48 ms-10">
                 <label :class="`w-3/4 relative block`">
