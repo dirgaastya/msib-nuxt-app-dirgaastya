@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TProduct } from "~/store/product.store";
+import { TProduct } from "~/types/types";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -33,6 +33,7 @@ defineProps({
             </NuxtLink>
         </div>
         <Swiper
+            v-if="products.length > 0"
             :modules="modules"
             :slides-per-view="2"
             :space-between="10"
@@ -61,7 +62,13 @@ defineProps({
             <SwiperSlide v-for="(product, index) in products" :key="index">
                 <ProductCard :product="product" />
             </SwiperSlide>
+
             <SwiperButtonNext />
         </Swiper>
+        <div v-else class="flex items-center justify-between">
+            <div v-for="index in 5" :key="`i-${index}`">
+                <ProductCardSkeleton />
+            </div>
+        </div>
     </div>
 </template>

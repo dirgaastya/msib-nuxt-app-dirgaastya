@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TProduct } from "../../store/product.store";
+import { TProduct } from "~/types/types";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -29,6 +29,7 @@ defineProps({
                 </div>
             </div>
             <Swiper
+                v-if="products.length > 0"
                 :modules="modules"
                 :slides-per-view="1"
                 :breakpoints="{
@@ -56,6 +57,11 @@ defineProps({
                 </SwiperSlide>
                 <SwiperButtonNext />
             </Swiper>
+            <div v-else class="flex items-center justify-between gap-x-3 -ml-24">
+                <div v-for="index in 4" :key="`i-${index}`">
+                    <ProductCardSkeleton />
+                </div>
+            </div>
         </div>
     </div>
 </template>

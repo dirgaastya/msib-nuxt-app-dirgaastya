@@ -41,7 +41,13 @@ onMounted(() => {
             </div>
             <div class="pb-16">
                 <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 pb-10">
-                    <ProductCard v-for="(product, index) in productStore.products" :key="index" :product="product" />
+                    <ProductCard
+                        v-if="productStore.products.length > 0"
+                        v-for="(product, index) in productStore.products"
+                        :key="index"
+                        :product="product"
+                    />
+                    <ProductCardSkeleton v-else v-for="index in 20" :key="`i-${index}`" />
                 </div>
                 <PaginationContainer />
             </div>

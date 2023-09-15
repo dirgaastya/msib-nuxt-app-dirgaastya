@@ -51,9 +51,9 @@ const navigationLinks: NavMenu[] = [
                 >
                 <img src="~/assets/icons/shopping-cart-2.svg" alt="cart" />
             </NuxtLink>
-            <img src="~/assets/images/Avatar.png" class="w-10 h-10 rounded-full overflow-hidden" />
+            <img src="~/assets/images/Avatar.png" class="w-10 h-10 rounded-full overflow-hidden cursor-pointer" />
         </div>
-        <div class="block md:hidden">
+        <div class="block md:hidden cursor-pointer">
             <img src="../assets/icons/hamburger-menu.svg" alt="hamburger" class="w-8 h-8" />
         </div>
     </nav>

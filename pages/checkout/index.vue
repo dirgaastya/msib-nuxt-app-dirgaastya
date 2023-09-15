@@ -11,21 +11,16 @@ const cartStore = useCartStore();
         </div>
         <div class="px-6 md:px-28 flex gap-x-6">
             <div class="space-y-6">
-                <CheckoutCard v-for="(cart, index) in cartStore.cart.products" :key="index" :product="cart" />
+                <CheckoutCard
+                    v-if="cartStore.cart.products"
+                    v-for="(cart, index) in cartStore.cart.products"
+                    :key="index"
+                    :product="cart"
+                />
+                <CheckoutCardSkeleton v-else />
             </div>
             <div>
-                <div class="border border-gray-200 p-5 rounded-xl bg-white space-y-5">
-                    <div class="flex justify-between">
-                        <div class="flex items-center justify-between">
-                            <div class="w-1/2">
-                                <h4 class="font-normal text-base text-gray-900">Sub Total</h4>
-                                <p class="font-normal text-xs text-gray-400">Shipping and taxes calculated at checkout</p>
-                            </div>
-                            <h3 class="font-semibold text-xl text-gray-900 text-right">$ {{ cartStore.cart.total }}</h3>
-                        </div>
-                    </div>
-                    <CheckoutButton />
-                </div>
+                <CheckoutTotalCard :total="cartStore.cart.total" />
             </div>
         </div>
     </div>
