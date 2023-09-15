@@ -29,7 +29,7 @@ export const useCartStore = defineStore('cart', {
                     this.localCart[index].quantity += quantity
                 } else {
                     this.localCart.push({ id, quantity })
-                } g
+                }
 
                 const requestData = {
                     merge: true,
