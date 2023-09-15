@@ -1,13 +1,14 @@
-import { ProductSelectorSection } from '#build/components'
 import axios from 'axios'
-import { TCart, TCartProduct } from '~/types/types'
+import { TCart, TLocalCart } from '~/types/types'
 
 
 export const useCartStore = defineStore('cart', {
     state: (): {
         cart: TCart,
+        localCart: TLocalCart[]
     } => ({
         cart: {} as TCart,
+        localCart: []
     }),
     getters: {
         cartCount: (state) => state.cart.products.length
@@ -23,11 +24,16 @@ export const useCartStore = defineStore('cart', {
         },
         async addItem(id: number, quantity: number): Promise<void> {
             try {
+                const index = this.localCart.findIndex(item => item.id === id)
+                if (index !== -1) {
+                    this.localCart[index].quantity += quantity
+                } else {
+                    this.localCart.push({ id, quantity })
+                } g
+
                 const requestData = {
                     merge: true,
-                    products: [{
-                        id, quantity
-                    }]
+                    products: this.localCart
                 };
 
                 const response = await axios.put('https://dummyjson.com/carts/1', requestData, {

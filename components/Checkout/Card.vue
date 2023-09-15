@@ -10,7 +10,10 @@ defineProps({
 });
 </script>
 <template>
-    <div class="w-[720px] flex border border-gray-200 p-2 rounded-xl bg-white">
+    <NuxtLink
+        :to="`/product/${product.id}`"
+        class="w-[720px] flex border border-gray-200 p-2 rounded-xl bg-white hover:bg-gray-100 transition ease-linear duration-100"
+    >
         <div class="w-72 h-44 rounded-md overflow-hidden bg-gray-200">
             <img
                 :src="`https://i.dummyjson.com/data/products/${product.id}/thumbnail.jpg`"
@@ -40,5 +43,5 @@ defineProps({
                 </button>
             </div>
         </div>
-    </div>
+    </NuxtLink>
 </template>

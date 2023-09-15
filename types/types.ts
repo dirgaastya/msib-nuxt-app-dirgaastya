@@ -31,3 +31,8 @@ export type TCart = {
     "totalProducts": number,
     "totalQuantity": number
 }
+
+export type TLocalCart = {
+    id: number,
+    quantity: number
+}
